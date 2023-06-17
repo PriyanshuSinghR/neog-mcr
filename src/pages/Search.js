@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
 export const Search = () => {
-  const { state, dispatch } = useContext(BookContext);
+  const { state } = useContext(BookContext);
   const getSearchedBooks = state.allBooks.filter((item) =>
     item.title.toLowerCase().includes(state.searchInput.toLowerCase()),
   );

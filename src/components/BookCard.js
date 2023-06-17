@@ -55,69 +55,91 @@ export const BookCard = ({ book }) => {
             padding: '10px',
             borderRadius: '10px',
             cursor: 'pointer',
+            width: '170px',
           }}
         >
-          <option
-            value="current"
+          <div
             className="toggle"
-            style={{ padding: '5px', borderRadius: '5px' }}
+            style={{ padding: '5px', borderRadius: '5px', display: 'flex' }}
             onClick={(event) =>
               dispatch({
                 type: 'UPDATE_ALL_BOOKS',
                 payload: state.allBooks.map((e) =>
-                  e.id === id ? { ...e, status: event.target.value } : e,
+                  e.id === id ? { ...e, status: 'current' } : e,
                 ),
               })
             }
           >
+            {book.status === 'current' && (
+              <div>
+                <Icon
+                  icon="teenyicons:tick-small-solid"
+                  color="white"
+                  width="15"
+                  height="15"
+                  style={{ backgroundColor: 'green' }}
+                />
+              </div>
+            )}
             Currently Reading
-          </option>
-
-          <option
-            value="want"
+          </div>
+          <div
             className="toggle"
-            style={{ padding: '5px', borderRadius: '5px' }}
+            style={{ padding: '5px', borderRadius: '5px', display: 'flex' }}
             onClick={(event) =>
               dispatch({
                 type: 'UPDATE_ALL_BOOKS',
                 payload: state.allBooks.map((e) =>
-                  e.id === id ? { ...e, status: event.target.value } : e,
+                  e.id === id ? { ...e, status: 'want' } : e,
                 ),
               })
             }
           >
+            {book.status === 'want' && (
+              <div>
+                <Icon
+                  icon="teenyicons:tick-small-solid"
+                  color="white"
+                  width="15"
+                  height="15"
+                  style={{ backgroundColor: 'green' }}
+                />
+              </div>
+            )}
             Want To Read
-          </option>
-          <option
-            value="read"
+          </div>
+          <div
             className="toggle"
-            style={{ padding: '5px', borderRadius: '5px' }}
+            style={{ padding: '5px', borderRadius: '5px', display: 'flex' }}
             onClick={(event) =>
               dispatch({
                 type: 'UPDATE_ALL_BOOKS',
                 payload: state.allBooks.map((e) =>
-                  e.id === id ? { ...e, status: event.target.value } : e,
+                  e.id === id ? { ...e, status: 'read' } : e,
                 ),
               })
             }
           >
+            {book.status === 'read' && (
+              <div>
+                <Icon
+                  icon="teenyicons:tick-small-solid"
+                  color="white"
+                  width="15"
+                  height="15"
+                  style={{ backgroundColor: 'green' }}
+                />
+              </div>
+            )}
             Read
-          </option>
-          <option
-            value="none"
+          </div>
+          <div
             className="toggle"
-            style={{ padding: '5px', borderRadius: '5px' }}
-            onClick={(event) =>
-              dispatch({
-                type: 'UPDATE_ALL_BOOKS',
-                payload: state.allBooks.map((e) =>
-                  e.id === id ? { ...e, status: event.target.value } : e,
-                ),
-              })
-            }
+            style={{ padding: '5px', borderRadius: '5px', display: 'flex' }}
+            onClick={(event) => setToggle(!toggle)}
           >
-            None
-          </option>
+            none
+          </div>
         </div>
       )}
     </div>
