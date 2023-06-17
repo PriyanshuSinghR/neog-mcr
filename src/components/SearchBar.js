@@ -7,7 +7,7 @@ export const SearchBar = () => {
   const history = useNavigate();
 
   useEffect(() => {
-    if (searchInput.length > 0) {
+    if (state.searchInput.length > 0) {
       history('./search');
     }
   }, [state.searchInput]);
